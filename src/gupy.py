@@ -9,7 +9,7 @@ def gupy_api_extractor(label: str, limit: int = 400, offset: int = 0) -> List[Di
     try:
         response = requests.get(url)
         response.raise_for_status()  
-        return response.json()
+        return response.json()['data']
     except requests.exceptions.RequestException as e:
         print(f"Erro ao acessar a API da Gupy: {e}")
         return []
